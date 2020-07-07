@@ -8,6 +8,15 @@ use App\User;
 class AccessToken extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'username', 'access_token', 'instagram_user_id', 'user_id'
+    ];
+
+    /**
      * Get the user that owns the phone.
      */
     public function user()

@@ -98,8 +98,13 @@ class AccessTokenController extends Controller
         // Get instagram user name
         $username = $oAuth->username;
 
-        // do your code here
+        $user = auth()->user();
+        $user->token()->create([
+            'username' => $username,
+            'access_token' => $accessToken,
+            'instagram_user_id' => $userId
+        ]);
 
-        dd($username, $accessToken);
+        dd($oAuth, $username);
     }
 }

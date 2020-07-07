@@ -16,8 +16,8 @@ class CreateAccessTokensTable extends Migration
         Schema::create('access_tokens', function (Blueprint $table) {
             $table->id();
             $table->string('username');
-            $table->string('access_tokens');
-            $table->string('expire');
+            $table->string('access_token');
+            $table->bigInteger('instagram_user_id');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });

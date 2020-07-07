@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login/instagram', 'SocialLoginController@redirectToInstagramProvider')->name('instagram.login');
+Route::get('login/instagram', 'AccessTokenController@redirectToInstagramProvider')->name('instagram.login');
 
-Route::get('login/instagram/callback', 'SocialLoginController@instagramProviderCallback')->name('instagram.login.callback');
+Route::get('login/instagram/callback', 'AccessTokenController@instagramProviderCallback')->name('instagram.login.callback');
 
 Auth::routes();
 

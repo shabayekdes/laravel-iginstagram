@@ -26,8 +26,10 @@
                                 id="inputEmail3">
                         </div>
                         <div class="col-sm-3">
-                            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">Add
-                                account</a>
+                            {{-- <a href="#" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">Add
+                                account</a> --}}
+                                <a href="{{ route('instagram.login') }}" class="btn btn-danger">Add
+                                Account</a>
                         </div>
                     </div>
                     @foreach ($tokens as $token)
@@ -50,7 +52,7 @@
                     </div>
                     @endforeach
                     <button type="submit" class="btn btn-primary">Go Live For Selected</button>
-                    <!-- Modal -->
+                    {{-- <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -85,7 +87,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

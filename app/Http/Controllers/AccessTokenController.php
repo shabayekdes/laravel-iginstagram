@@ -105,6 +105,6 @@ class AccessTokenController extends Controller
             'instagram_user_id' => $userId
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('accounts.index');
     }
 }

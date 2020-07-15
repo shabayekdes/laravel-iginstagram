@@ -16,7 +16,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        $tokens = Account::all();
+        $tokens = AccessToken::all();
         return view('account.index', compact('tokens'));
     }
 

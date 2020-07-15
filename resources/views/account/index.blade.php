@@ -56,6 +56,12 @@
                         </ul>
                     </div>
                     @endif
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">RTMP:</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" value="rtmps://live-upload.instagram.com:443/rtmp/" id="inputEmail3">
+                        </div>
+                    </div>
                     @foreach ($tokens as $token)
                     <div class="d-flex bd-highlight">
                         <div class="p-2 align-self-center bd-highlight">
@@ -71,7 +77,7 @@
                             </div>
                         </div>
                         <div class="p-2 align-self-center bd-highlight">
-                            <button type="submit" class="btn btn-primary">Go Live</button>
+                            <button type="submit" class="btn btn-primary">Connect</button>
                         </div>
                     </div>
                     @endforeach

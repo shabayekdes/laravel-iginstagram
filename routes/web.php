@@ -24,3 +24,5 @@ Route::get('login/instagram/callback', 'AccessTokenController@instagramProviderC
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('accounts', 'AccountController');

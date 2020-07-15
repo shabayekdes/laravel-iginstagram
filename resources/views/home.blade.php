@@ -14,7 +14,8 @@
                     </div>
                     @endif
 
-                    <a href="{{ route('instagram.login') }}">Instagram login</a>
+                    <a href="{{ route('instagram.login') }}" class="btn btn-danger">Instagram Login</a>
+                    <a href="{{ route('accounts.index') }}" class="btn btn-success">My Accounts</a>
                 </div>
             </div>
         </div>

@@ -105,6 +105,6 @@ class AccessTokenController extends Controller
             'instagram_user_id' => $userId
         ]);
 
-        dd($oAuth, $username);
+        return redirect()->route('home');
     }
 }

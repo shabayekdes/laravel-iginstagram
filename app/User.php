@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\AccessToken;
+use App\Models\Account;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -44,5 +45,13 @@ class User extends Authenticatable
     public function token()
     {
         return $this->hasOne(AccessToken::class);
+    }
+
+    /**
+     * Get the access token record associated with the user.
+     */
+    public function accounts()
+    {
+        return $this->hasMany(Account::class);
     }
 }

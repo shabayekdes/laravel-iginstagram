@@ -21,8 +21,8 @@ Route::get('login/instagram', 'AccessTokenController@redirectToInstagramProvider
 
 Route::get('login/instagram/callback', 'AccessTokenController@instagramProviderCallback')->name('instagram.login.callback');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('accounts', 'AccountController');
+
+Auth::routes(['register' => false]);

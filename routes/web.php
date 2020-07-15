@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/{uri?}', function () {
     return view('layouts.app');
-});
+})->where('uri', '(.*)');
 
 Route::get('login/instagram', 'AccessTokenController@redirectToInstagramProvider')->name('instagram.login');
 

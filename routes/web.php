@@ -17,6 +17,7 @@ Route::get('/{uri?}', function () {
     return view('layouts.app');
 })->where('uri', '(.*)');
 
+
 Route::get('login/instagram', 'AccessTokenController@redirectToInstagramProvider')->name('instagram.login');
 
 Route::get('login/instagram/callback', 'AccessTokenController@instagramProviderCallback')->name('instagram.login.callback');

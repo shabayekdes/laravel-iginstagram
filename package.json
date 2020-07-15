@@ -12,9 +12,14 @@
     "devDependencies": {
         "@babel/plugin-syntax-dynamic-import": "^7.8.3",
         "@babel/preset-react": "^7.8.3",
+<<<<<<< HEAD
+=======
+        "babel-preset-react": "^6.23.0",
+>>>>>>> 48cdcb21c16061ef02147b29b7f407ce12c4af34
         "axios": "^0.19",
         "babel-preset-react": "^6.23.0",
         "bootstrap": "^4.0.0",
+<<<<<<< HEAD
         "cross-env": "^5.2.1",
         "eslint": "^4.19.1",
         "eslint-config-standard": "^11.0.0",
@@ -23,22 +28,42 @@
         "eslint-plugin-promise": "^3.8.0",
         "eslint-plugin-react": "^7.18.3",
         "eslint-plugin-standard": "^3.1.0",
+=======
+        "popper.js": "^1.12",
+>>>>>>> 48cdcb21c16061ef02147b29b7f407ce12c4af34
         "jquery": "^3.2",
+        "cross-env": "^5.2.1",
+        "eslint": "^4.19.1",
+        "eslint-config-standard": "^11.0.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-node": "^6.0.1",
+        "eslint-plugin-promise": "^3.8.0",
+        "eslint-plugin-react": "^7.18.3",
+        "eslint-plugin-standard": "^3.1.0",
         "laravel-mix": "^5.0.1",
         "laravel-mix-purgecss": "^5.0.0-rc.1",
         "nprogress": "^0.2.0",
+<<<<<<< HEAD
         "popper.js": "^1.12",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
         "react-router-dom": "^5.2.0",
+=======
+        "react": "^16.13.0",
+        "react-dom": "^16.13.0",
+        "react-router-dom": "^5.1.2",
+>>>>>>> 48cdcb21c16061ef02147b29b7f407ce12c4af34
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.26.2",
         "sass-loader": "^8.0.2",
         "source-map-explorer": "^2.3.1",
         "tailwindcss": "^1.2.0",
         "whatwg-fetch": "^3.0.0"
+<<<<<<< HEAD
     },
     "dependencies": {
         "react-is": "^16.13.1"
+=======
+>>>>>>> 48cdcb21c16061ef02147b29b7f407ce12c4af34
     }
 }

@@ -1,9 +1,11 @@
+
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-// import Nav from '../../components/Nav'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Account from "../Account";
 import Profile from "../Profile";
+import Nav from '../../components/Nav'
+
 
 class App extends Component {
     render() {

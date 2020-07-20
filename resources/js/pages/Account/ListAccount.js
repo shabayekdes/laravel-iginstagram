@@ -6,7 +6,7 @@ class ListAccount extends Component {
     render() {
         const { accounts } = this.props;
         const listItems = accounts.map((account) =>
-            <div className="d-flex bd-highlight">
+            <div className="d-flex bd-highlight" key={account.id}>
                 <div className="p-2 align-self-center bd-highlight">
                     <div className="form-group form-check">
                         <input type="checkbox" className="form-check-input" id="exampleCheck1" />
@@ -14,7 +14,7 @@ class ListAccount extends Component {
                 </div>
                 <div className="p-2 flex-fill bd-highlight">
                     <div className="form-group">
-                        <label for="exampleInputEmail1">{ account.username }</label>
+                        <label htmlFor="exampleInputEmail1">{ account.username }</label>
                         <input type="email" className="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" />
                     </div>

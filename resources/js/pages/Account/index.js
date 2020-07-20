@@ -8,18 +8,26 @@ class Account extends Component {
     
         this.state = {
           accounts: [
-            {
-                id : 1,
-                username : "esmailshabayek",
-                password : "12345678"
-            },
-            {
-                id : 2,
-                username : "shabayekdes",
-                password : "12345678"
-            }
+            // {
+            //     id : 1,
+            //     username : "esmailshabayek",
+            //     password : "12345678"
+            // },
+            // {
+            //     id : 2,
+            //     username : "shabayekdes",
+            //     password : "12345678"
+            // }
           ]
         }
+      }
+
+      componentDidMount () {
+        axios.get('/api/accounts').then(response => {
+          this.setState({
+            accounts: response.data.data
+          })
+        })
       }
     render() {
         return (
@@ -33,13 +41,13 @@ class Account extends Component {
 
                             <div className="card-body">
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-2 col-form-label">RTMP:</label>
-                                    <div class="col-sm-7">
-                                        <input type="email" class="form-control" value="rtmps://live-upload.instagram.com:443/rtmp/"
+                                    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">RTMP:</label>
+                                    <div className="col-sm-7">
+                                        <input type="email" className="form-control" value="rtmps://live-upload.instagram.com:443/rtmp/"
                                             id="inputEmail3" />
                                     </div>
-                                    <div class="col-sm-3">
-                                        <a href="#" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">Add
+                                    <div className="col-sm-3">
+                                        <a href="#" className="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">Add
                                             account</a>
                                     </div>
                                 </div>
@@ -63,14 +71,14 @@ class Account extends Component {
 
                                 <div className="modal-body">
                                     <div className="form-group">
-                                        <label for="inputUsername">Username</label>
+                                        <label htmlFor="inputUsername">Username</label>
                                         <input type="text" className="form-control" name="username" id="inputUsername"
                                             aria-describedby="usernameHelp" />
                                         <small id="usernameHelp" className="form-text text-muted">We'll never share your
                                             email with anyone else.</small>
                                     </div>
                                     <div className="form-group">
-                                        <label for="inputPassword">Password</label>
+                                        <label htmlFor="inputPassword">Password</label>
                                         <input type="password" name="password" className="form-control"
                                             id="inputPassword" />
                                     </div>

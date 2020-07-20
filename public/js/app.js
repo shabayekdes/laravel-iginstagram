@@ -69958,7 +69958,8 @@ var ListAccount = /*#__PURE__*/function (_Component) {
       var accounts = this.props.accounts;
       var listItems = accounts.map(function (account) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "d-flex bd-highlight"
+          className: "d-flex bd-highlight",
+          key: account.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "p-2 align-self-center bd-highlight"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -69972,7 +69973,7 @@ var ListAccount = /*#__PURE__*/function (_Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "form-group"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          "for": "exampleInputEmail1"
+          htmlFor: "exampleInputEmail1"
         }, account.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "email",
           className: "form-control",
@@ -70048,20 +70049,33 @@ var Account = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this);
     _this.state = {
-      accounts: [{
-        id: 1,
-        username: "esmailshabayek",
-        password: "12345678"
-      }, {
-        id: 2,
-        username: "shabayekdes",
-        password: "12345678"
-      }]
+      accounts: [// {
+        //     id : 1,
+        //     username : "esmailshabayek",
+        //     password : "12345678"
+        // },
+        // {
+        //     id : 2,
+        //     username : "shabayekdes",
+        //     password : "12345678"
+        // }
+      ]
     };
     return _this;
   }
 
   _createClass(Account, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios.get('/api/accounts').then(function (response) {
+        _this2.setState({
+          accounts: response.data.data
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70081,20 +70095,20 @@ var Account = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         "class": "form-group row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputEmail3",
-        "class": "col-sm-2 col-form-label"
+        htmlFor: "inputEmail3",
+        className: "col-sm-2 col-form-label"
       }, "RTMP:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "col-sm-7"
+        className: "col-sm-7"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "email",
-        "class": "form-control",
+        className: "form-control",
         value: "rtmps://live-upload.instagram.com:443/rtmp/",
         id: "inputEmail3"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "col-sm-3"
+        className: "col-sm-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
-        "class": "btn btn-success",
+        className: "btn btn-success",
         "data-toggle": "modal",
         "data-target": "#staticBackdrop"
       }, "Add account"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Account_ListAccount__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -70135,7 +70149,7 @@ var Account = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputUsername"
+        htmlFor: "inputUsername"
       }, "Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control",
@@ -70148,7 +70162,7 @@ var Account = /*#__PURE__*/function (_Component) {
       }, "We'll never share your email with anyone else.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputPassword"
+        htmlFor: "inputPassword"
       }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         name: "password",

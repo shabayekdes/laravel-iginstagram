@@ -1,20 +1,16 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Account from "../pages/Account";
-
+import { Link } from 'react-router-dom'
 
 class Nav extends Component {
     render() {
         return (
-            <div>Nav</div>
-            // <BrowserRouter>
-            //     <div>
-            //         <Switch>
-            //             <Route exact path="/" component={Account} />
-            //         </Switch>
-            //     </div>
-            // </BrowserRouter>
+            <nav className='navbar navbar-expand-md navbar-light navbar-laravel'>
+                <div className='container'>
+                    <Link className='navbar-brand' to='/'>Account</Link>
+                    <Link className='navbar-brand' to='/profile'>Profile</Link>
+                </div>
+            </nav>
         );
     }
 }

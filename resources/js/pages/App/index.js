@@ -11,10 +11,13 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Switch>
-                    <Route exact path="/" component={Account} />
-                    <Route exact path="/profile" component={Profile} />
-                </Switch>
+                <div>
+                    <Nav />
+                    <Switch>
+                        <Route exact path="/" component={Account} />
+                        <Route exact path="/profile" component={Profile} />
+                    </Switch>
+                </div>
             </BrowserRouter>
         );
     }

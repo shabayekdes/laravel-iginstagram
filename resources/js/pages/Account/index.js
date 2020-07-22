@@ -22,9 +22,14 @@ class Account extends Component {
           ]
         }
 
-        const ig = new IgApiClient();
+        // const ig = new IgApiClient();
 
-        console.log(ig)
+        // const device = ig.state.generateDevice("14343");
+        // const loggg = ig.account.login("13434", 13344);
+
+        // console.log(ig)
+        // console.log(device)
+        // console.log(loggg)
       }
 
 
@@ -36,20 +41,37 @@ class Account extends Component {
         })
       }
     render() {
+        const ig = new IgApiClient();
 
-
-        // const signIn = async () => {
- 
+        // async function login() {
+        //     ig.state.generateDevice(process.env.IG_USERNAME);
+        //     // ig.state.proxyUrl = process.env.IG_PROXY;
+        //     await ig.account.login(process.env.IG_USERNAME, process.env.IG_PASSWORD);
+        //   }
+          
+        //   (async () => {
         //     try {
-        //       await client.state.generateDevice("14343");
-        //       await client.account.login("13434", 13344);
-        //       console.log(`Logged in`)
-        //       return;
+        //         await ig.simulate.preLoginFlow();
+        //         // basic login-procedure
+        //         await login();
         //     } catch (error) {
-        //       console.error({ error });
-    
+        //         console.error({ error });
         //     }
-        //   };
+        //     const { broadcast_id, upload_url } = await ig.live.create({
+        //       // create a stream in 720x1280 (9:16)
+        //       previewWidth: 720,
+        //       previewHeight: 1280,
+        //       // this message is not necessary, because it doesn't show up in the notification
+        //       message: 'My message',
+        //     });
+        //     // (optional) get the key and url for programs such as OBS
+        //     const { stream_key, stream_url } = LiveEntity.getUrlAndKey({ broadcast_id, upload_url });
+        //     console.log(`Start your stream on ${stream_url}.\n
+        //       Your key is: ${stream_key}`);
+
+          
+        //     // now you're basically done
+        //   })();
 
         return (
             <div className="container">
@@ -58,6 +80,8 @@ class Account extends Component {
                         <div className="card">
                             <div className="card-header">
                                 <h5 className="card-title">My Accounts</h5>
+                                <a href="#" className="btn btn-success" onClick={this.signIn} >Add
+                                            account</a>
                             </div>
 
                             <div className="card-body">
@@ -68,7 +92,7 @@ class Account extends Component {
                                             id="inputEmail3" />
                                     </div>
                                     <div className="col-sm-3">
-                                        <a href="#" className="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">Add
+                                        <a href="#" className="btn btn-success" onClick={this.signIn} data-toggle="modal" data-target="#staticBackdrop">Add
                                             account</a>
                                     </div>
                                 </div>

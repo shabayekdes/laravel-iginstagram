@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import ListAccount from "../Account/ListAccount";
+import { IgApiClient } from "instagram-private-api";
 
 class Account extends Component {
     constructor () {
@@ -20,7 +21,12 @@ class Account extends Component {
             // }
           ]
         }
+
+        const ig = new IgApiClient();
+
+        console.log(ig)
       }
+
 
       componentDidMount () {
         axios.get('/api/accounts').then(response => {
@@ -30,6 +36,21 @@ class Account extends Component {
         })
       }
     render() {
+
+
+        // const signIn = async () => {
+ 
+        //     try {
+        //       await client.state.generateDevice("14343");
+        //       await client.account.login("13434", 13344);
+        //       console.log(`Logged in`)
+        //       return;
+        //     } catch (error) {
+        //       console.error({ error });
+    
+        //     }
+        //   };
+
         return (
             <div className="container">
                 <div className="row justify-content-center">

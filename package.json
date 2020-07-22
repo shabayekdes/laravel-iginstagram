@@ -39,6 +39,7 @@
         "whatwg-fetch": "^3.0.0"
     },
     "dependencies": {
+        "instagram-private-api": "^1.41.0",
         "react-is": "^16.13.1"
     }
 }

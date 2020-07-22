@@ -39,6 +39,9 @@
     },
     "dependencies": {
         "instagram-private-api": "^1.41.0",
-        "react-is": "^16.13.1"
+        "react-is": "^16.13.1",
+        "react-redux": "^7.2.0",
+        "redux": "^4.0.5",
+        "redux-thunk": "^2.3.0"
     }
 }

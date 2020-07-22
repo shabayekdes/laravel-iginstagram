@@ -85,7 +85,7 @@ class Account extends Component {
                             </div>
 
                             <div className="card-body">
-                                <div class="form-group row">
+                                <div className="form-group row">
                                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">RTMP:</label>
                                     <div className="col-sm-7">
                                         <input type="email" className="form-control" value="rtmps://live-upload.instagram.com:443/rtmp/"
@@ -102,7 +102,7 @@ class Account extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+                <div className="modal fade" id="staticBackdrop" data-backdrop="static" tabIndex="-1" role="dialog"
                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">

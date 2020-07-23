@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/accounts', 'Api\AccountController@index');
+Route::post('/accounts', 'Api\AccountController@store');

@@ -29,7 +29,8 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $account = Account::create($request->all());
+        return new AccountResource($account);
     }
 
     /**

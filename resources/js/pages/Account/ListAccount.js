@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import { connect } from 'react-redux';
 
 class ListAccount extends Component {
 
     render() {
+        console.log(this.props)
         const { accounts } = this.props;
         const listItems = accounts.map((account) =>
             <div className="d-flex bd-highlight" key={account.id}>
@@ -31,5 +32,11 @@ class ListAccount extends Component {
         );
     }
 }
-
-export default ListAccount;
+function mapStateToProps (state) {
+    return {
+        x : state.count
+    }
+}
+export default connect(
+    mapStateToProps
+)(ListAccount);

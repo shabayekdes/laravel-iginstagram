@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import ListAccount from "../Account/ListAccount";
 import { IgApiClient } from "instagram-private-api";
+import AddAccount from "./AddAccount";
 
 class Account extends Component {
     constructor () {
@@ -26,22 +27,31 @@ class Account extends Component {
 
         // const device = ig.state.generateDevice("14343");
         // const loggg = ig.account.login("13434", 13344);
-
-        // console.log(ig)
-        // console.log(device)
-        // console.log(loggg)
       }
 
 
-      componentDidMount () {
+    componentDidMount () {
         axios.get('/api/accounts').then(response => {
-          this.setState({
+            this.setState({
             accounts: response.data.data
-          })
+            })
         })
-      }
+    }
+
     render() {
-        const ig = new IgApiClient();
+        // const ig = new IgApiClient();
+
+        const addAccount = (account) => {
+            axios.post(`/api/accounts`, account )
+            .then(res => {
+                let accounts = [...this.state.accounts, res.data.data];
+                this.setState({
+                    accounts
+                });
+                $("#addAccountModal").modal("hide");
+
+            })
+        }
 
         // async function login() {
         //     ig.state.generateDevice(process.env.IG_USERNAME);
@@ -80,8 +90,8 @@ class Account extends Component {
                         <div className="card">
                             <div className="card-header">
                                 <h5 className="card-title">My Accounts</h5>
-                                <a href="#" className="btn btn-success" onClick={this.signIn} >Add
-                                            account</a>
+                                {/* <a href="#" className="btn btn-success" onClick={this.signIn} >Add
+                                            account</a> */}
                             </div>
 
                             <div className="card-body">
@@ -92,7 +102,7 @@ class Account extends Component {
                                             id="inputEmail3" />
                                     </div>
                                     <div className="col-sm-3">
-                                        <a href="#" className="btn btn-success" onClick={this.signIn} data-toggle="modal" data-target="#staticBackdrop">Add
+                                        <a href="#" className="btn btn-success" onClick={this.signIn} data-toggle="modal" data-target="#addAccountModal">Add
                                             account</a>
                                     </div>
                                 </div>
@@ -102,38 +112,17 @@ class Account extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="modal fade" id="staticBackdrop" data-backdrop="static" tabIndex="-1" role="dialog"
-                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div className="modal fade" id="addAccountModal" data-backdrop="static" tabIndex="-1" role="dialog"
+                    aria-labelledby="addAccountLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                <h5 className="modal-title" id="addAccountLabel">Modal title</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="#" method="POST">
-
-                                <div className="modal-body">
-                                    <div className="form-group">
-                                        <label htmlFor="inputUsername">Username</label>
-                                        <input type="text" className="form-control" name="username" id="inputUsername"
-                                            aria-describedby="usernameHelp" />
-                                        <small id="usernameHelp" className="form-text text-muted">We'll never share your
-                                            email with anyone else.</small>
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="inputPassword">Password</label>
-                                        <input type="password" name="password" className="form-control"
-                                            id="inputPassword" />
-                                    </div>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary"
-                                        data-dismiss="modal">Close</button>
-                                    <button type="submit" className="btn btn-primary">Save</button>
-                                </div>
-                            </form>
+                            <AddAccount addAccount={addAccount} />
                         </div>
                     </div>
                 </div>

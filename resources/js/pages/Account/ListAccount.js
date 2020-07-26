@@ -1,42 +1,82 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
+import { IgApiClient } from "instagram-private-api";
 
 class ListAccount extends Component {
+    constructor(props) {
+        super(props);
+        this.ig = new IgApiClient();
+    }
+
+    login = async (username, password) => {
+        // console.log(this.ig);
+        console.log(username, password);
+
+        this.ig.state.generateDevice(username);
+        // ig.state.proxyUrl = process.env.IG_PROXY;
+        await this.ig.account.login(username, password);
+    };
+
+    connect = async account => {
+        account.rtmp = "fdfjgfj1524212g00dkfhldkhldlsdfgsdf";
+
+        this.props.addRtmpToAccount(account);
+
+        // try {
+        //     await this.ig.simulate.preLoginFlow();
+        //     // basic login-procedure
+        //     await this.login(account.username, account.password);
+        // } catch (error) {
+        //     console.error(error);
+        // }
+    };
 
     render() {
-        console.log(this.props)
         const { accounts } = this.props;
-        const listItems = accounts.map((account) =>
+
+        const listItems = accounts.map(account => (
             <div className="d-flex bd-highlight" key={account.id}>
                 <div className="p-2 align-self-center bd-highlight">
                     <div className="form-group form-check">
-                        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                        <input
+                            type="checkbox"
+                            className="form-check-input"
+                            id="exampleCheck1"
+                        />
                     </div>
                 </div>
                 <div className="p-2 flex-fill bd-highlight">
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">{ account.username }</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" />
+                        <label htmlFor="exampleInputEmail1">
+                            {account.username}
+                        </label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="exampleInputEmail1"
+                            value={account.rtmp}
+                            aria-describedby="emailHelp"
+                        />
                     </div>
                 </div>
                 <div className="p-2 align-self-center bd-highlight">
-                    <button type="submit" className="btn btn-primary">Connect</button>
+                    <a
+                        href="#"
+                        className="btn btn-primary"
+                        onClick={() => this.connect(account)}
+                        // onClick={() => addRtmpToAccount(1)}
+                    >
+                        Connect
+                    </a>
                 </div>
             </div>
-        );
-        return (
-            <div>
-                {listItems}
-            </div>
-        );
+        ));
+        return <div>{listItems}</div>;
     }
 }
-function mapStateToProps (state) {
+function mapStateToProps(state) {
     return {
-        x : state.count
-    }
+        x: state.count
+    };
 }
-export default connect(
-    mapStateToProps
-)(ListAccount);
+export default connect(mapStateToProps)(ListAccount);

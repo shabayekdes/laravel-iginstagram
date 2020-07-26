@@ -20,7 +20,7 @@ class Account extends Model
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-    ];
+    // protected $hidden = [
+    //     'password',
+    // ];
 }

@@ -22,14 +22,36 @@ class ListAccount extends Component {
 
         this.props.addRtmpToAccount(account);
 
-        // try {
-        //     await this.ig.simulate.preLoginFlow();
-        //     // basic login-procedure
-        //     await this.login(account.username, account.password);
-        // } catch (error) {
-        //     console.error(error);
-        // }
+        try {
+            await this.ig.simulate.preLoginFlow();
+            // basic login-procedure
+            await this.login(account.username, account.password);
+        } catch (error) {
+            console.error(error);
+        }
     };
+
+    startLiveStream = async () => {
+
+        try {
+          const { broadcast_id, upload_url } = await client.live.create({
+            // create a stream in 720x1280 (9:16)
+            previewWidth: 720,
+            previewHeight: 1280,
+            // this message is not necessary, because it doesn't show up in the notification
+            message: "My message",
+          });
+          console.log({ broadcast_id, upload_url });
+          const { stream_key, stream_url } = LiveEntity.getUrlAndKey({
+            broadcast_id,
+            upload_url,
+          });
+          console.log({ stream_key, stream_url });
+
+        } catch (error) {
+
+        }
+      };
 
     render() {
         const { accounts } = this.props;
@@ -51,10 +73,10 @@ class ListAccount extends Component {
                             {account.username}
                         </label>
                         <input
-                            type="email"
+                            type="text"
                             className="form-control"
                             id="exampleInputEmail1"
-                            value={account.rtmp}
+                            value={account.rtmp || ""}
                             aria-describedby="emailHelp"
                         />
                     </div>

@@ -69,13 +69,13 @@ class ListAccount extends Component {
                 </div>
                 <div className="p-2 flex-fill bd-highlight">
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">
+                        <label htmlFor={"username-" + account.username}>
                             {account.username}
                         </label>
                         <input
                             type="text"
                             className="form-control"
-                            id="exampleInputEmail1"
+                            id={"username-" + account.username}
                             value={account.rtmp || ""}
                             aria-describedby="emailHelp"
                         />
